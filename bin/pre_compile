@@ -1,0 +1,15 @@
+
+VENDORED_GDAL="https://lang-python.s3.amazonaws.com/cedar-14/libraries/vendor/gdal.tar.gz"
+VENDORED_GEOS="https://lang-python.s3.amazonaws.com/cedar-14/libraries/vendor/geos.tar.gz"
+VENDORED_PROJ="https://lang-python.s3.amazonaws.com/cedar-14/libraries/vendor/proj.tar.gz"
+
+mkdir -p .heroku/vendor
+
+echo "Grabbing gdal..."
+curl $VENDORED_GDAL -s | tar zxv -C .heroku/vendor
+echo "Grabbing geos..."
+curl $VENDORED_GEOS -s | tar zxv -C .heroku/vendor
+echo "Grabbing proj..."
+curl $VENDORED_PROJ -s | tar zxv -C .heroku/vendor
+
+echo "Installed all vendored geo dependencies!"
