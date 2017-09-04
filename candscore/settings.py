@@ -142,4 +142,4 @@ STATICFILES_DIRS = [
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so
+GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
