@@ -22,7 +22,7 @@
 								<div class="content">
 									<h3>AFL-CIO Score</h3>
 									<h1>{{senrep.score}}</h1>
-									<a href="#" class="button alt small">See their votes</a>
+									<a href="votes/{{houserep.id}}" class="button alt small">See their votes</a>
 								</div>
 							</div>
 						</div>	
@@ -41,14 +41,14 @@
 					<h2>Representative {{houserep.firstname}} {{houserep.lastname}} <br> District {{hd.district}}, {{hd.city}} </h2>
 					<div class = 'row'>
 						<div class = 'col-md-3 col-md-offset-3'>
-							<img class = 'candidate' src = '/static/img/senatemember/birdwell.jpg'>
+							<img class = 'candidate' src = '/static/img/housemember/{{houserep.photolink}}'>
 						</div>
 						<div class = 'col-md-4'>
 							<div class="flex-item box text-center">
 								<div class="content">
 									<h3>AFL-CIO Score</h3>
-									<h1>{{senrep.score}}</h1>  <!-- STILL SET TO SENATE -->
-									<a href="#" class="button alt small">See their votes</a>
+									<h1>{{houserep.score}}</h1>  <!-- STILL SET TO SENATE -->
+									<a href="votes/{{houserep.id}}" class="button alt small">See their votes</a>
 								</div>
 							</div>
 						</div>	

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}	
+
+{% block content %}
+
+		<!-- senate -->
+				<section class="wrapper style1 special">
+				<div class="inner text-center">
+					<h1>How {{pol.firstname}} {{pol.lastname}} voted on labor issues.</h1>
+				</div>
+			</section>
+
+
+			<div class="inner text-center">
+					<h4> </h4>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Bill</th>
+									<th>Description</th>
+									<th>Vote Labor?</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for vote in votes %}
+								<tr>
+									<td>{{vote.bill.billname}}</td>
+									<td>{{vote.bill.description}}</td>
+									<td>{{vote.unionvote}}</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+
+
+
+
+{% endblock content %}		

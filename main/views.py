@@ -6,6 +6,7 @@ from django.contrib.gis import geos
 
 def returnindex(request):
 	if request.POST: ##from home form
+		print("##INDEX##")
 		zipcode = request.POST.get('zipcode')
 		address = request.POST.get('address')
 		location = address + ' ' + zipcode
@@ -27,5 +28,11 @@ def showleg(request, lat, lng):
 	senrep = sd.incumbent
 	string = 'HouseDistrict: %s controlled %s, SenateDistrict %s controlled %s in %s ' % (hd.district, hd.party, sd.district, sd.party, hd.city)
 	return render(request, 'showleg.html', {'sd': sd, 'hd': hd, 'houserep': houserep, 'senrep':senrep})
+
+def vote_table(request, incumbent_id):
+	pol = Politician.objects.get(id=incumbent_id)
+	votes = HouseVote.objects.filter(housemember_id = incumbent_id)
+	print("###processing vote_table function###")
+	return render(request, 'show_votes.html', {'pol':pol, 'votes':votes})
 
 

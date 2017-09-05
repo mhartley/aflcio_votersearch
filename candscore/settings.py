@@ -80,16 +80,21 @@ WSGI_APPLICATION = 'candscore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+
+###NOT OUR ACTUAL DATABASE. HEROKU ROTATES CREDENTIALS. conrolled by dj_database extension
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'df4foiccehl6r6',
-        'USER': 'dhfnsekvuelxrw',
-        'PASSWORD': 'ef70b90c2ff94728880683d23ff33e25bd717626127a8f08321f72af51698aa8',
-        'HOST': 'ec2-184-72-243-166.compute-1.amazonaws.com',
+        'NAME': 'aflcio',
+        'USER': 'morgan',
+        'PASSWORD': '',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+# DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -142,4 +147,4 @@ STATICFILES_DIRS = [
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
+# GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
