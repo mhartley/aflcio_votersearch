@@ -27,9 +27,23 @@
 								<tr>
 									<td>{{vote.bill.billname}}</td>
 									<td>{{vote.bill.description}}</td>
-									<td>{{vote.unionvote}}</td>
+									{% if vote.unionvote == True %}
+									<td style= "font-size:22px; color:green;">✔</td>
+									{% elif vote.unionvote == False %}
+									<td style= "font-size:22px; color:red;">✖</td>
+									{% elif vote.unionvote == Null %}
+									<td style= "font-size:22px; color:grey;">◍</td>
+									{% endif %}
+
 								</tr>
 							{% endfor %}
+						</tbody>
+							<tfoot>
+									<tr>
+										<td></td>
+										<td colspan="2" style = 'text-align:right;'>✔ Voted with Labor Interests&emsp;✖ Voted against Labor Interests&emsp;◍ Abstained</td>
+									</tr>
+								</tfoot>
 						</table>
 					</div>
 				</div>

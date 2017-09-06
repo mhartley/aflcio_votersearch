@@ -22,8 +22,8 @@ def showleg(request, lat, lng):
 	print(lat)
 	print(lng)
 	user_pt = geos.Point(lng, lat, srid=4326)
-	sd = SenateDistrict.objects.get(geom__intersects=user_pt)
-	hd = HouseDistrict.objects.get(geom__intersects=user_pt)
+	sd = District.objects.filter(chamber='s').get(geom__intersects=user_pt)
+	hd = District.objects.filter(chamber='h').get(geom__intersects=user_pt)
 	houserep = hd.incumbent
 	senrep = sd.incumbent
 	string = 'HouseDistrict: %s controlled %s, SenateDistrict %s controlled %s in %s ' % (hd.district, hd.party, sd.district, sd.party, hd.city)
@@ -31,7 +31,7 @@ def showleg(request, lat, lng):
 
 def vote_table(request, incumbent_id):
 	pol = Politician.objects.get(id=incumbent_id)
-	votes = HouseVote.objects.filter(housemember_id = incumbent_id)
+	votes = Vote.objects.filter(politician_id = incumbent_id)
 	print("###processing vote_table function###")
 	return render(request, 'show_votes.html', {'pol':pol, 'votes':votes})
 
