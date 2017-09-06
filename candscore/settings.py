@@ -93,8 +93,8 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] =  dj_database_url.config()
-# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+DATABASES['default'] =  dj_database_url.config()
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -147,5 +147,5 @@ STATICFILES_DIRS = [
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-# GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
+GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
 
