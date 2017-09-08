@@ -35,4 +35,5 @@ def vote_table(request, incumbent_id):
 	print("###processing vote_table function###")
 	return render(request, 'show_votes.html', {'pol':pol, 'votes':votes})
 
-
+def elements(request):
+		return render(request, 'elements.html')
