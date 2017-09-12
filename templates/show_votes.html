@@ -25,7 +25,7 @@
 							<tbody>
 							{% for vote in votes %}
 								<tr>
-									<td>{{vote.bill.billname}}</td>
+									<td><span style = 'font-weight:bold;'>{{vote.bill.billname}}</span></td>
 									<td>{{vote.bill.description}}</td>
 									{% if vote.unionvote == True %}
 									<td style= "font-size:22px; color:green;">✔</td>
