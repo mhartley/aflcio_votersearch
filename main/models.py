@@ -24,6 +24,11 @@ class Vote(models.Model):
 	bill = models.ForeignKey(Bill, related_name='hvote')
 	unionvote = models.BooleanField()
 
+class Capture(models.Model):
+	name = models.CharField(max_length=255)
+	email = models.EmailField()
+
+
 
 
 

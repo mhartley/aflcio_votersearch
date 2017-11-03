@@ -3,34 +3,40 @@
 {% block content %}
 
 		<!-- Banner -->
-		<div class = 'inner'>
-			<section id="banner">
-				<div class="content">
-					<h1>Are your representatives supporting your labor rights?</h1>
-					<p>Find our how your legislators have voted on key labor issues.</p>
+		<div id = 'home-main'>
+			<div id = 'main-overlay'>
+				<div class = 'inner' >
+					<section id="banner">
+						<div class="content">
+							<h1>Are your representatives supporting your labor rights?</h1>
+							<p>Find our how your legislators have voted on key labor issues.
+							<div id = 'errormessage'></div></p>
+
 			
 
-			<form method="post" action="#">
-				{% csrf_token %}
-			<div class="row uniform">
-				<div class="8u 12u$(xsmall)">
-					<input type="text" name="address" id="address" value="" placeholder="Address" />
-				</div>
-				<div class="4u$ 12u$(xsmall)">
-					<input type="text" name="zipcode" id="zipcode" value="" placeholder="ZipCode" />
-				</div>
-				<div class="12u$">
-				<ul class="actions">
-					<li><input type="submit" value="Find your Legislator" /></li>
-				</ul>
-			</div>
-			</div>
-		</form>
+								<form method="post" action= 'legislatorhandle'>
+									{% csrf_token %}
+								<div class="row uniform">
+									<div class="8u 12u$(xsmall)">
+										<input type="text" name="address" id="address" value="" placeholder="Address" />
+									</div>
+									<div class="4u$ 12u$(xsmall)">
+										<input type="text" name="zipcode" id="zipcode" value="" placeholder="ZipCode" />
+									</div>
+									<div class="12u$">
+									<ul class="actions">
+										<li><input type="submit" value="Find your Legislator" /></li>
+									</ul>
+								</div>
+								</div>
+							</form>
 
 
-				</div>
-			</section>
+					</div>
+				</section>
+			</div>
 		</div>
+	<div>
 
 		<!-- One -->
 		<!-- 	<section id="one" class="wrapper">
@@ -64,9 +70,9 @@
 		<!-- Two -->
 			<section id="two" class="wrapper style1 special">
 				<div class="inner">
-					<ul class="actions fit">
+					<!-- <ul class="actions fit">
 						<li><a href="www.texasaflcio.org" class="button fit">Donate to AFL-CIO</a></li>
-					</ul>
+					</ul> -->
 					<figure>
 					    <blockquote>
 					      The role of a labor union is to ensure that the balance is not tipped in favor of the employer <br>when employees do not receive wages and benefits commensurate with their contribution.
@@ -80,36 +86,58 @@
 			</section>
 
 		<!-- Three -->
-			<section id="three" class="wrapper">
+			<section id="main-boxes" class="wrapper">
 				<div class="inner flex flex-3">
 					<div class="flex-item box">
 						<div class="image fit">
 							<img src="images/pic02.jpg" alt="" />
 						</div>
-						<div class="content">
-							<h3>Consequat</h3>
-							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
+						<div class="content text-center">
+							<h3>Stay Involved</h3>
+							<p>Text Solidarity to 235346</p>
 						</div>
 					</div>
 					<div class="flex-item box">
 						<div class="image fit">
 							<img src="images/pic03.jpg" alt="" />
 						</div>
-						<div class="content">
-							<h3>Adipiscing</h3>
-							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+						<div class="content text-center">
+							<h3>Vote</h3>
+							<p><a href = "https://voterregistration.txdemocrats.org/">Register here</a></p>
 						</div>
 					</div>
 					<div class="flex-item box">
 						<div class="image fit">
 							<img src="images/pic04.jpg" alt="" />
 						</div>
-						<div class="content">
-							<h3>Malesuada</h3>
-							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
+						<div class="content text-center">
+							<h3>Donate</h3>
+							<p><a href = "texasaflcio.org/donate">To the the Texas Worker's Relief Fund</a></p>
 						</div>
 					</div>
 				</div>
 			</section>
 
 {% endblock content %}			
+
+
+{% block scripts %}
+<script>
+
+		var error = {{ error }}
+		$(document).ready(function() {
+			if (error) {
+				
+				$('#errormessage').text('Oops! That doesn\'t seem to have returned an address. Please try again. ')
+
+
+
+			};
+
+
+			 
+
+		});
+
+</script>
+{% endblock scripts %}

@@ -1,53 +1,125 @@
 {% extends 'base.html' %}
 {% load staticfiles %}	
 
+{% block css %}
+
+		<style>
+
+
+			#welcomemat {
+				position:absolute;
+				border-radius: 5px;
+				/*border: 3px solid #25a2c3;*/
+				padding: 20px;
+				z-index: 999;
+				height: 100%;
+				width: 100%;
+				background-color: #fff;
+				margin: 0 auto;
+				text-align: center;
+				
+			}
+
+			#welcomemat > h2, h3 {
+				margin: 10 auto;
+				text-align: center;
+				color: #25a2c3;;
+
+			}
+
+/*			input {
+				background-color: #fff;
+
+			}*/
+
+			.form-buttons {
+				margin: 0 auto;
+				text-align: center;
+			}
+
+
+		</style>
+
+
+{% endblock css %}
 {% block content %}
 
-		<!-- senate -->
-				<section class="wrapper style1 special">
+
+		<div id = 'welcomemat'>
+				<h2 class = 'headertext'>Thanks for being engaged!</h2><h3>Sign up to get election updates from the AFL-CIO. We promise we NEVER spam you.</h3>
+
+
+			<form id  ='welcomematform' method = 'post' action = 'emailinputhandle'>
+				{% csrf_token %}
+					<div class="row uniform">
+						<div class="12u$">
+							<input type="text" name="name" id="name" value="" placeholder="Name" />
+						</div>
+						<div class="12u$">
+							<input type="email" name="email" id="email" value="" placeholder="Email" />
+						</div>
+						<!-- Break -->
+						<div class="12u$">
+							<ul class="actions form-buttons">
+								<li><input type="submit" value="Sign Up" id = 'submit' /></li>
+								<li><input type="reset" value="No Thanks" id= "closeForm" class = "alt" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+
+		</div>
+
+
+		<!-- SIDE BY SIDE ROWS -->
+
+
+
+			<section class="wrapper style1 special">
 				<div class="inner text-center">
-					<h1>Texas Senate</h1>
+					<h1>Your Elected Officials</h1>
 				</div>
 			</section>
 
+
+
+
 			<section class="wrapper">
 				<div class="inner text-center section-headline">
-					<h2>Senator {{senrep.firstname}} {{senrep.lastname}} <br> District {{sd.district}}, {{sd.city}} </h2>
+					<h4>Candidate endorsements are not official. For demonstration purposes only.</h4>
 					<div class = 'row'>
-						<div class = 'col-xs-6 col-md-3 col-md-offset-3'>
-							<img class = 'candidate' src = '/static/img/senatemember/{{senrep.photolink}}'>
-						</div>
-						<div class = 'col-xs-6 col-md-3'>
-							<div class="flex-item box text-center">
+					<div class="col-md-4 col-xs-12">	
+						<div class="flex-item box text-center politicianshow">
+							<h2>U.S. House</h2>
+							<img class = 'candidate' src = '/static/img/ushousemember/{{congrep.photolink}}'>
 								<div class="content">
-									<h3>AFL-CIO Score</h3>
+									<h3> Representative {{congrep.firstname}} {{congrep.lastname}} <br> District {{cd.district}} </h3>
+									<!-- <h3>AFL-CIO Score</h3> -->
 									<h1><span style = 'font-size: 40px'>{{senrep.grade}}</span></h1>
 									<a href="votes/{{senrep.id}}" class="button alt small">See their votes</a>
 								</div>
 							</div>
 						</div>	
-					</div>
-				</div>
-			</section>
-
-				<section class="wrapper style1 special">
-				<div class="inner text-center">
-					<h1>Texas House of Representatives</h1>
-				</div>
-			</section>
-
-				<section class="wrapper">
-				<div class="inner text-center section-headline">
-					<h2>Representative {{houserep.firstname}} {{houserep.lastname}} <br> District {{hd.district}}, {{hd.city}} </h2>
-					<div class = 'row'>
-						<div class = 'col-xs-6 col-md-3 col-md-offset-3'>
-							<img class = 'candidate' src = '/static/img/housemember/{{houserep.photolink}}'>
-						</div>
-						<div class = 'col-xs-6 col-md-3'>
-							<div class="flex-item box text-center">
+						<div class="col-md-4 col-xs-12">	
+						<div class="flex-item box text-center politicianshow">
+							<h2>State Senate</h2>
+							<img class = 'candidate' src = '/static/img/senatemember/{{senrep.photolink}}'>
 								<div class="content">
-									<h3>AFL-CIO Score</h3>
-									<h1><span style = 'font-size: 40px'>{{houserep.grade}}</span></h1> 
+									<h3> Senator {{senrep.firstname}} {{senrep.lastname}} <br> District {{sd.district}} </h3>
+									<!-- <h3>AFL-CIO Score</h3> -->
+									<h1><span style = 'font-size: 40px'>{{senrep.grade}}</span></h1>
+									<a href="votes/{{senrep.id}}" class="button alt small">See their votes</a>
+								</div>
+							</div>
+						</div>	
+						<div class="col-md-4 col-xs-12">	
+						<div class="flex-item box text-center politicianshow">
+							<h2>State House</h2>
+							<img class = 'candidate' src = '/static/img/housemember/{{houserep.photolink}}'>
+								<div class="content">
+									<h3> Representative {{houserep.firstname}} {{houserep.lastname}} <br> District {{hd.district}} </h3>
+									<!-- <h3>AFL-CIO Score</h3> -->
+									<h1><span style = 'font-size: 40px'>{{houserep.grade}}</span></h1>
 									<a href="votes/{{houserep.id}}" class="button alt small">See their votes</a>
 								</div>
 							</div>
@@ -56,5 +128,86 @@
 				</div>
 			</section>
 
+		
 
-{% endblock content %}			
+
+
+<!-- 		
+
+				<section class="wrapper style1 special">
+				<div class="inner text-center">
+					<h1>US House</h1>
+				</div>
+			</section>
+
+				<section class="wrapper">
+				<div class="inner text-center section-headline">
+					<h2> Representative {{congrep.firstname}} {{congrep.lastname}} <br> District {{cd.district}} </h2>
+					<div class = 'row'>
+						<div class = 'col-xs-6 col-md-3 col-md-offset-3'>
+							<img class = 'candidate' src = '/static/img/ushousemember/{{congrep.photolink}}'>
+						</div>
+						<div class = 'col-xs-6 col-md-3'>
+							<div class="flex-item box text-center">
+								<div class="content">
+									<h3>AFL-CIO Score</h3>
+									<h1><span style = 'font-size: 40px'>{{houserep.grade}}</span></h1>
+									<a href="votes/{{senrep.id}}" class="button alt small">See their votes</a>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</section>
+ -->
+
+	
+
+{% endblock content %}		
+
+
+
+{% block scripts %}	
+
+<script>
+
+	$('input#closeForm').on('click', function(){
+		console.log('gone away')
+		$('#welcomemat').css('display', 'none');
+	});
+
+	// $('#welcomematform').submit(function(e){
+
+	// 	$.ajax(
+	// 	{url: '#/emailinputhandle',
+ //        type:'post',
+ //        data: $('#welcomematform').serialize(),
+ //        success:function(){
+ //           console.log($('#welcomematform').serialize());
+ //           }
+ //        });
+	// });
+
+
+$("form").submit(function(e){
+    var form = $(this);
+    var data = form.serialize();
+    $.ajax({ 
+         url   : form.attr('action'),
+         type  : form.attr('method'),
+         data  : form.serialize(), // data to be submitted
+         success: function(response){
+            $('.headertext').text('Thanks. =)');
+    		$('#welcomemat').animate({'display': 'none'}, 300);
+         }
+    });
+
+
+    $('#welcomemat').css('display', 'none');
+    return false;
+ });
+
+
+
+</script>
+{% endblock scripts%}

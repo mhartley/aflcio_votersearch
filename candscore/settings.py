@@ -124,6 +124,7 @@ USE_TZ = True
 # # Change 'defaul t' database configuration with $DATABASE_URL.
 DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -134,7 +135,7 @@ ALLOWED_HOSTS = ['*']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
@@ -147,5 +148,5 @@ STATICFILES_DIRS = [
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
+
 
