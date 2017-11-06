@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico";
+@import "https://fonts.googleapis.com/css?family=Roboto:700|Open+Sans:300,400|Pacifico";
 
 /*
 	Intensify by TEMPLATED
@@ -1807,7 +1807,7 @@ header#header, footer#footer {
 	h1, h2, h3, h4, h5, h6 {
 		color: #001885;
 		font-weight: 700;
-		font-family: "Montserrat", sans-serif;
+		font-family: "Roboto", sans-serif;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
 	}
@@ -2525,7 +2525,7 @@ header#header, footer#footer {
 		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Montserrat", sans-serif;
+		font-family: "Roboto", sans-serif;
 		height: 3.5em;
 		line-height: 3.5em;
 		padding: 0 3.5em;
@@ -2807,7 +2807,7 @@ header#header, footer#footer {
 
 		#header .logo {
 			color: #ff0004;
-			font-family: Montserrat;
+			font-family: Roboto;
 			font-weight: 800;
 			font-size: 2.5em;
 			letter-spacing: 2px;
