@@ -6,10 +6,9 @@
 		<style>
 
 
-			#welcomemat {
+		/*	#welcomemat {
 				position:absolute;
 				border-radius: 5px;
-				/*border: 3px solid #25a2c3;*/
 				padding: 20px;
 				z-index: 999;
 				height: 100%;
@@ -27,15 +26,11 @@
 
 			}
 
-/*			input {
-				background-color: #fff;
-
-			}*/
 
 			.form-buttons {
 				margin: 0 auto;
 				text-align: center;
-			}
+			}*/
 
 
 		</style>
@@ -95,8 +90,15 @@
 								<div class="content">
 									<h3> Representative {{congrep.firstname}} {{congrep.lastname}} <br> District {{cd.district}} </h3>
 									<!-- <h3>AFL-CIO Score</h3> -->
-									<h1><span style = 'font-size: 40px'>{{senrep.grade}}</span></h1>
-									<a href="votes/{{senrep.id}}" class="button alt small">See their votes</a>
+									<h1><span style = 'font-size: 30px'>
+										{% if congrep.endorse %}
+									<span style= "color:green;">✔ AFL Endorsed</span>
+									{% elif not congrep.endorse %}
+									<span style= "color:red;">✖ AFL Opposed</span>
+									{% else %}
+									<span style= "color:grey;">◍ No Opinion</span>
+									{% endif %}</span></h1>
+									<!-- <a href="votes/{{senrep.id}}" class="button alt small">See their votes</a> -->
 								</div>
 							</div>
 						</div>	
@@ -107,8 +109,15 @@
 								<div class="content">
 									<h3> Senator {{senrep.firstname}} {{senrep.lastname}} <br> District {{sd.district}} </h3>
 									<!-- <h3>AFL-CIO Score</h3> -->
-									<h1><span style = 'font-size: 40px'>{{senrep.grade}}</span></h1>
-									<a href="votes/{{senrep.id}}" class="button alt small">See their votes</a>
+									<h1><span style = 'font-size: 30px'>
+										{% if senrep.endorse %}
+									<span style= "color:green;">✔ AFL Endorsed</span>
+									{% elif not senrep.endorse %}
+									<span style= "color:red;">✖ AFL Opposed</span>
+									{% else %}
+									<span style= "color:grey;">◍ No Opinion</span>
+									{% endif %}</span></h1>
+									<!-- <a href="votes/{{senrep.id}}" class="button alt small">See their votes</a> -->
 								</div>
 							</div>
 						</div>	
@@ -119,8 +128,14 @@
 								<div class="content">
 									<h3> Representative {{houserep.firstname}} {{houserep.lastname}} <br> District {{hd.district}} </h3>
 									<!-- <h3>AFL-CIO Score</h3> -->
-									<h1><span style = 'font-size: 40px'>{{houserep.grade}}</span></h1>
-									<a href="votes/{{houserep.id}}" class="button alt small">See their votes</a>
+									<h1><span style = 'font-size: 30px'>{% if houserep.endorse %}
+									<span style= "color:green;">✔ AFL Endorsed</span>
+									{% elif not houserep.endorse %}
+									<span style= "color:red;">✖ AFL Opposed</span>
+									{% elif houserep.endorse == Null %}
+									<span style= "color:grey;">◍ No Opinion</span>
+									{% endif %}</span></h1>
+									<!-- <a href="votes/{{houserep.id}}" class="button alt small">See their votes</a> -->
 								</div>
 							</div>
 						</div>	

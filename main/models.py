@@ -5,6 +5,7 @@ class Politician(models.Model):
 	firstname = models.CharField(max_length=255)
 	photolink = models.CharField(max_length=255)
 	grade = models.CharField(max_length=255)
+	endorse = models.NullBooleanField(max_length=255)
 
 class District(models.Model):
 	district = models.CharField(max_length=255)

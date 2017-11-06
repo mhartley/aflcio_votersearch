@@ -11,13 +11,47 @@
 
 
 /*ORIGINAL RED: #f6755e AFLCIO RED:  #ff0004*/
-/*original blue:#25a2c3 aflcio blue: #001885*/
-
+/*original blue:#25a2c3g aflcio blue: #001885*/
+/*original grey: black; now black
 
 
 
 
 /*MORGAN SITE SPECIFIC EDITS*/
+
+
+
+/*welcome_mat stuff*/
+	#welcomemat {
+				position:absolute;
+				border-radius: 5px;
+				/*border: 3px solid #25a2c3;*/
+				padding: 20px;
+				z-index: 999;
+				height: 100%;
+				width: 100%;
+				background-color: #fff;
+				margin: 0 auto;
+				text-align: center;
+				
+			}
+
+			#welcomemat > h2, h3 {
+				margin: 10 auto;
+				text-align: center;
+				color: #001885;;
+
+			}
+
+/*			input {
+				background-color: #fff;
+
+			}*/
+
+			.form-buttons {
+				margin: 0 auto;
+				text-align: center;
+			}
 
 
 	 img.candidate {
@@ -39,7 +73,7 @@
 
 	#home-main {
 		background-image: url('/static/img/site_img/tx_capitol.jpg');
-		background-size: contain;
+		background-size: cover;
 		background-repeat: no-repeat;
 		width: 100%;
 	}
@@ -65,7 +99,35 @@
 
 	}
 
+	/*resets the screen on the home page*/
 
+	#home-main input::-webkit-input-placeholder {
+	color: white !important;
+	}
+	
+	#home-main input:-moz-placeholder { /* Firefox 18- */
+	color: white !important;
+	}
+	
+	#home-main  input::-moz-placeholder {  /* Firefox 19+ */
+	color: white !important;
+	}
+	
+	#home-main  input:-ms-input-placeholder {  
+	color: white !important;
+	}
+
+
+/*header footer css to match afl-cio website*/
+
+header#header, footer#footer {
+	background: black !important;
+	color: white !important;
+}
+
+.logo {
+	color: white !important;
+}
 
 /* Reset */
 
@@ -1673,7 +1735,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: #767d85;
+		color: black;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 		font-size: 13pt;
 		font-weight: 300;
@@ -1865,6 +1927,8 @@
 		text-align: center;
 	}
 
+
+
 	header p {
 		color: #bbb;
 		position: relative;
@@ -2010,7 +2074,7 @@
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
-			color: #767d85;
+			color: black;
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
@@ -2597,7 +2661,7 @@
 		button:disabled,
 		.button.disabled,
 		.button:disabled {
-			background-color: #767d85 !important;
+			background-color: black !important;
 			box-shadow: inset 0 -0.15em 0 0 rgba(0, 0, 0, 0.15);
 			color: #fff !important;
 			cursor: default;

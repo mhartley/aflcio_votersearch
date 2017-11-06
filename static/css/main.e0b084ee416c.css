@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
+@import url("font-awesome.min.5339709e9c0e.css");
 @import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico";
 
 /*
@@ -72,7 +72,7 @@
 	 }
 
 	#home-main {
-		background-image: url('/static/img/site_img/tx_capitol.jpg');
+		background-image: url("/static/img/site_img/tx_capitol.a6fd43ec65e0.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		width: 100%;
@@ -3044,7 +3044,7 @@ header#header, footer#footer {
 
 	#banner {
 		padding: 8em 0 12em 0;
-		background-image: url();
+		background-image: url("");
 		background-size: cover;
 		background-position: center top;
 		background-repeat: no-repeat;
