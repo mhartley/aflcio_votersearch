@@ -6,7 +6,7 @@ from django.contrib.gis import geos
 import re
 
 def returnindex(request):
-	return render(request, 'home.html')
+	return render(request, 'home.html', {'error':False})
 
 
 def legislatorhandle(request):
@@ -38,7 +38,7 @@ def showleg(request, lat, lng):
 		string = 'HouseDistrict: %s controlled %s, SenateDistrict %s controlled %s in %s ' % (hd.district, hd.party, sd.district, sd.party, hd.city)
 		return render(request, 'showleg.html', {'cd': cd, 'sd': sd, 'hd': hd, 'congrep': congrep, 'houserep': houserep, 'senrep':senrep, 'lat':lat, 'lng':lng})
 	except:
-		return error(request)
+		return render(request, 'home.html', {'error':True})
 
 def vote_table(request, incumbent_id):
 	pol = Politician.objects.get(id=incumbent_id)

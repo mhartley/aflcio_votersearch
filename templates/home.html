@@ -9,8 +9,9 @@
 					<section id="banner">
 						<div class="content">
 							<h1>Are your representatives supporting your labor rights?</h1>
-							<p>Find our how your legislators have voted on key labor issues.
-							<div id = 'errormessage'></div></p>
+							<p>Find our how your legislators have voted on key labor issues.</p>
+
+							{%if error%}<p id = 'searcherror'>The address was either not valid or not in texas. Please try entering another address. </p>{% endif %}
 
 			
 

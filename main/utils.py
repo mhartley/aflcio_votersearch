@@ -3,7 +3,7 @@ import json
 
 def geo_api(location):
     location = location.replace(' ', '+')
-    address = location + ',+Texas'
+    address = location
     apikey =  'AIzaSyCKjvW-c9UV2u1bkLqe0If6Fh8A5HgcUW4' # MORGAN'S ACCOUNT 
     gmapsrequesturl = 'https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=%s' % (address, apikey)
     print(gmapsrequesturl)
