@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "&na&!b&nf6w92x46l*uvt!mesbf3zmzw+n925#1rvg-2!$$qxl"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -122,9 +122,9 @@ USE_L10N = True
 USE_TZ = True
 
 # # Change 'defaul t' database configuration with $DATABASE_URL.
-DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
-GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
+# DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
+# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+# GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
