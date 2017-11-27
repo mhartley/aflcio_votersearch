@@ -108,9 +108,9 @@
 
 	#home-main input {
 		border: 2px solid #fff;
-		-moz-box-shadow:    2px 1px 1px 2px rgba(0,0,0, .3);
-		  -webkit-box-shadow: 2px 1px 1px 2px rgba(0,0,0, .3);
-		  box-shadow:         2px 1px 1px 2px rgba(0,0,0, .3);
+		-moz-box-shadow:    2px 1px 1px 2px rgba(0,0,0, .2);
+		  -webkit-box-shadow: 2px 1px 1px 2px rgba(0,0,0, .2);
+		  box-shadow:         2px 1px 1px 2px rgba(0,0,0, .2);
 	}
 
 	#home-main input:focus {
@@ -122,22 +122,26 @@
 
 	}
 
-	/*resets the screen on the home page*/
+	/*placeholder font colors for main form*/
 
 	#home-main input::-webkit-input-placeholder {
-	color: white !important;
+	color: #001885 !important;
+	font-weight: bold;
 	}
 	
 	#home-main input:-moz-placeholder { /* Firefox 18- */
-	color: white !important;
+	color: #001885 !important;
+	font-weight: bold;
 	}
 	
 	#home-main  input::-moz-placeholder {  /* Firefox 19+ */
-	color: white !important;
+	color: #001885 !important;
+	font-weight: bold;
 	}
 	
 	#home-main  input:-ms-input-placeholder {  
-	color: white !important;
+	color: #001885 !important;
+	font-weight: bold;
 	}
 
 
