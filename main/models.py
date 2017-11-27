@@ -26,8 +26,17 @@ class Vote(models.Model):
 	unionvote = models.BooleanField()
 
 class Capture(models.Model):
-	name = models.CharField(max_length=255)
+	zipcode = models.CharField(max_length=10)
 	email = models.EmailField()
+	address = models.CharField(max_length=400)
+	cellphone = models.CharField(max_length=12)
+	georeturn = models.NullBooleanField()
+	client_ip = models.CharField(max_length=255, null=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+
+
+
 
 
 

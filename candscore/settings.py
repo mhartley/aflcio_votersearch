@@ -121,7 +121,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# # Change 'defaul t' database configuration with $DATABASE_URL.
+# Change 'default' database configuration with $DATABASE_URL.
 DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'

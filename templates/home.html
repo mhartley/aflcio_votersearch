@@ -19,10 +19,18 @@
 									{% csrf_token %}
 								<div class="row uniform">
 									<div class="8u 12u$(xsmall)">
-										<input type="text" name="address" id="address" value="" placeholder="Address" />
+										<input type="text" name="address" id="address" class = "shadow" value="" placeholder="Address" />
 									</div>
 									<div class="4u$ 12u$(xsmall)">
-										<input type="text" name="zipcode" id="zipcode" value="" placeholder="ZipCode" />
+										<input type="text" name="zipcode" id="zipcode" value="" class = "shadow" placeholder="ZipCode" />
+									</div>
+								</div>
+								<div class="row uniform">
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="email" id="email" value="" class = "shadow" placeholder="Email" />
+									</div>
+									<div class="6u$ 12u$(xsmall)">
+										<input type="text" name="cellphone" id="cellphone" value="" class = "shadow" placeholder="Cell Phone" />
 									</div>
 									<div class="12u$">
 									<ul class="actions">

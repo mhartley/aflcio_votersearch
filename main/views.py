@@ -5,20 +5,50 @@ from .models import *
 from django.contrib.gis import geos
 import re
 
+
+
+
+##function to return user ip -- does not return a page
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
 def returnindex(request):
 	return render(request, 'home.html', {'error':False})
 
 
 def legislatorhandle(request):
 	if request.POST: ##from home form
-		print("##INDEX##")
 		zipcode = request.POST.get('zipcode')
 		address = request.POST.get('address')
+		email = request.POST.get('email')
+		cellphone = request.POST.get('cellphone')
+		client_ip = get_client_ip(request)
+		##call the google api -- function in utils.py
 		location = address + ' ' + zipcode
 		georesponse = geo_api(location)
 		if georesponse['status'] =='OK':
+			#save the form data
+			i = Capture(zipcode = zipcode, address = address, email = email, cellphone = cellphone, client_ip = client_ip, georeturn = True)
+			try:
+				i.save()
+			except:
+				transaction.rollback()
+			#show them the goodies
 			return showleg(request, georesponse['lat'], georesponse['lng'])
 		else:
+			#save the form data
+			i = Capture(zipcode = zipcode, address = address, email = email, cellphone = cellphone, client_ip = client_ip, georeturn = False)
+			try:
+				i.save()
+			except:
+				transaction.rollback()
+			#start fresh from home page with an error message
 			return render(request, 'home.html', {'error':True})
 	else:
 		return render(request, 'home.html', {'error':True})
@@ -43,7 +73,6 @@ def showleg(request, lat, lng):
 def vote_table(request, incumbent_id):
 	pol = Politician.objects.get(id=incumbent_id)
 	votes = Vote.objects.filter(politician_id = incumbent_id)
-	print("###processing vote_table function###")
 	return render(request, 'show_votes.html', {'pol':pol, 'votes':votes})
 
 def elements(request):
@@ -53,17 +82,6 @@ def elements(request):
 def welcomemat(request):
 	return render(request, 'welcomemat.html')
 
-
-def emailinputhandle(request):
-	if request.POST:
-		capturename = request.POST.get('name');
-		captureemail = request.POST.get('email');
-		if captureemail:
-			i = Capture(name = capturename, email = captureemail)
-			try:
-				i.save()
-			except:
-				transaction.rollback()
 
 def error(request):
 	return render(request, 'error.html')

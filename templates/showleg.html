@@ -3,44 +3,14 @@
 
 {% block css %}
 
-		<style>
-
-
-		/*	#welcomemat {
-				position:absolute;
-				border-radius: 5px;
-				padding: 20px;
-				z-index: 999;
-				height: 100%;
-				width: 100%;
-				background-color: #fff;
-				margin: 0 auto;
-				text-align: center;
-				
-			}
-
-			#welcomemat > h2, h3 {
-				margin: 10 auto;
-				text-align: center;
-				color: #25a2c3;;
-
-			}
-
-
-			.form-buttons {
-				margin: 0 auto;
-				text-align: center;
-			}*/
-
-
-		</style>
-
 
 {% endblock css %}
 {% block content %}
 
 
-		<div id = 'welcomemat'>
+<!-- This was a welcome mat to gather email. Not put into header form by request. -->
+
+<!-- 		<div id = 'welcomemat'>
 				<h2 class = 'headertext'>Thanks for being engaged!</h2><h3>Sign up to get election updates from the AFL-CIO. We promise we NEVER spam you.</h3>
 
 
@@ -53,7 +23,7 @@
 						<div class="12u$">
 							<input type="email" name="email" id="email" value="" placeholder="Email" />
 						</div>
-						<!-- Break -->
+					
 						<div class="12u$">
 							<ul class="actions form-buttons">
 								<li><input type="submit" value="Sign Up" id = 'submit' /></li>
@@ -65,14 +35,19 @@
 
 		</div>
 
-
+ -->
 		<!-- SIDE BY SIDE ROWS -->
 
 
 
 			<section class="wrapper style1 special">
-				<div class="inner text-center">
-					<h1>Your Elected Officials</h1>
+				<div class="row inner text-center">
+					<div class = "col-md-4 col-xs-12 align-middle">
+						<h1>Your Elected Officials</h1>
+					</div>
+					<div class = "col-md-8 col-xs-12">
+						<p>Our endorsements are based on these people's votes. Labor is awesome! We got together in a room and built an objective system to measure how much these people support labor. You should vote for these people!</p>
+					</div>
 				</div>
 			</section>
 
@@ -143,6 +118,38 @@
 				</div>
 			</section>
 
+			<section id="main-boxes" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item box darkbox">
+						<div class="image fit">
+							<img src="images/pic02.jpg" alt="" />
+						</div>
+						<div class="content text-center">
+							<h3>Stay Involved</h3>
+							<p>Text Solidarity to 235346</p>
+						</div>
+					</div>
+					<div class="flex-item box darkbox">
+						<div class="image fit">
+							<img src="images/pic03.jpg" alt="" />
+						</div>
+						<div class="content text-center">
+							<h3>Vote</h3>
+							<p><a href = "https://voterregistration.txdemocrats.org/">Register here</a></p>
+						</div>
+					</div>
+					<div class="flex-item box darkbox">
+						<div class="image fit">
+							<img src="images/pic04.jpg" alt="" />
+						</div>
+						<div class="content text-center">
+							<h3>Donate</h3>
+							<p><a href = "texasaflcio.org/donate">To the the Texas Worker's Relief Fund</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 		
 
 
@@ -186,41 +193,41 @@
 
 <script>
 
-	$('input#closeForm').on('click', function(){
-		console.log('gone away')
-		$('#welcomemat').css('display', 'none');
-	});
+// 	$('input#closeForm').on('click', function(){
+// 		console.log('gone away')
+// 		$('#welcomemat').css('display', 'none');
+// 	});
 
-	// $('#welcomematform').submit(function(e){
+// 	// $('#welcomematform').submit(function(e){
 
-	// 	$.ajax(
-	// 	{url: '#/emailinputhandle',
- //        type:'post',
- //        data: $('#welcomematform').serialize(),
- //        success:function(){
- //           console.log($('#welcomematform').serialize());
- //           }
- //        });
-	// });
-
-
-$("form").submit(function(e){
-    var form = $(this);
-    var data = form.serialize();
-    $.ajax({ 
-         url   : form.attr('action'),
-         type  : form.attr('method'),
-         data  : form.serialize(), // data to be submitted
-         success: function(response){
-            $('.headertext').text('Thanks. =)');
-    		$('#welcomemat').animate({'display': 'none'}, 300);
-         }
-    });
+// 	// 	$.ajax(
+// 	// 	{url: '#/emailinputhandle',
+//  //        type:'post',
+//  //        data: $('#welcomematform').serialize(),
+//  //        success:function(){
+//  //           console.log($('#welcomematform').serialize());
+//  //           }
+//  //        });
+// 	// });
 
 
-    $('#welcomemat').css('display', 'none');
-    return false;
- });
+// $("form").submit(function(e){
+//     var form = $(this);
+//     var data = form.serialize();
+//     $.ajax({ 
+//          url   : form.attr('action'),
+//          type  : form.attr('method'),
+//          data  : form.serialize(), // data to be submitted
+//          success: function(response){
+//             $('.headertext').text('Thanks. =)');
+//     		$('#welcomemat').animate({'display': 'none'}, 300);
+//          }
+//     });
+
+
+//     $('#welcomemat').css('display', 'none');
+//     return false;
+//  });
 
 
 
