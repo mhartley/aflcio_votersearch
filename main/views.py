@@ -39,8 +39,12 @@ def legislatorhandle(request):
 				i.save()
 			except:
 				transaction.rollback()
+			if email:
+				contactgiven = True
+			else:
+				contactgiven = False
 			#show them the goodies
-			return showleg(request, georesponse['lat'], georesponse['lng'])
+			return showleg(request, georesponse['lat'], georesponse['lng'], contactgiven)
 		else:
 			#save the form data
 			i = Capture(zipcode = zipcode, address = address, email = email, cellphone = cellphone, client_ip = client_ip, georeturn = False)
@@ -53,7 +57,7 @@ def legislatorhandle(request):
 	else:
 		return render(request, 'home.html', {'error':True})
 
-def showleg(request, lat, lng):
+def showleg(request, lat, lng, contactgiven):
 	print(lat)
 	print(lng)
 	try:
@@ -61,13 +65,26 @@ def showleg(request, lat, lng):
 		sd = District.objects.filter(chamber='s').get(geom__intersects=user_pt)
 		hd = District.objects.filter(chamber='h').get(geom__intersects=user_pt)
 		cd = District.objects.filter(chamber='c').get(geom__intersects=user_pt)
+		sw = District.objects.get(chamber='a')
 		houserep = hd.incumbent
 		senrep = sd.incumbent
 		congrep = cd.incumbent
-		print('###$$$$$' + congrep.lastname)
+		ltgov = sw.incumbent
 		string = 'HouseDistrict: %s controlled %s, SenateDistrict %s controlled %s in %s ' % (hd.district, hd.party, sd.district, sd.party, hd.city)
-		return render(request, 'showleg.html', {'cd': cd, 'sd': sd, 'hd': hd, 'congrep': congrep, 'houserep': houserep, 'senrep':senrep, 'lat':lat, 'lng':lng})
-	except:
+		return render(request, 'showleg.html', {
+						'sw': sw, 
+						'cd': cd, 
+						'sd': sd, 
+						'hd': hd, 
+						'congrep': congrep, 
+						'houserep': houserep, 
+						'senrep':senrep, 
+						'ltgov': ltgov, 
+						'lat':lat, 
+						'lng':lng,
+						'contactgiven':contactgiven})
+	except Exception as ex:
+		print(ex)
 		return render(request, 'home.html', {'error':True})
 
 def vote_table(request, incumbent_id):
@@ -81,6 +98,20 @@ def elements(request):
 
 def welcomemat(request):
 	return render(request, 'welcomemat.html')
+
+
+def welcomemathandle(request):
+	email = request.GET.get('email')
+	phone = request.GET.get('phone')
+	client_ip = get_client_ip(request)
+	i = Capture(zipcode = '', address = '', email = email, cellphone = phone, client_ip = client_ip)
+	print(i)
+	try:
+		i.save()
+	except Exception as e:
+		print(e)
+		transaction.rollback()
+	return HttpResponse('true')
 
 
 def error(request):

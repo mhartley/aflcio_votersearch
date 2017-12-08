@@ -19,15 +19,16 @@
 
 /*MORGAN SITE SPECIFIC EDITS*/
 
-
 /*welcome_mat stuff*/
 	/*change text boxes on bottom of leg results page to dark color*/
 	.darkbox {
 		background-color: #001885;
+		/*max-width: 300px;*/
 	}
 
 	.darkbox:hover{
-		background-color: #ff0004;
+		background-color: #fff;
+		color:#001885!important;
 	}
 
 	.darkbox .content, .darkbox .content h3, .darkbox p, .darkbox p a {
@@ -36,19 +37,19 @@
 
 	#searcherror {
 		color:red;
-		font-size: 1em;
+		font-size: .9em!important;
 		font-weight:bold;
 	}
 
 
 	/*welcome mat is currently deprecated after feature removed*/
 	#welcomemat {
-				position:absolute;
+				position:fixed;
 				border-radius: 5px;
 				/*border: 3px solid #25a2c3;*/
 				padding: 20px;
 				z-index: 999;
-				height: 100%;
+				height: 100vh;
 				width: 100%;
 				background-color: #fff;
 				margin: 0 auto;
@@ -76,7 +77,7 @@
 
 	 img.candidate {
 
-		 	border:0px solid rgba(0,0,0,0) 2px solid #ff0004; 
+		 	border: 1.5px solid #001885; 
 		 	border-radius: 5%;
 		 	height: 120px;
 		 	width: 100px;
@@ -2190,7 +2191,7 @@ header#header, footer#footer {
 
 	.box {
 		border-radius: 4px;
-		border: solid 1px #dee1e3;
+		border: solid 1.5px #001885;
 		margin-bottom: 2em;
 		overflow: hidden;
 	}
@@ -2774,7 +2775,7 @@ header#header, footer#footer {
 /* Wrapper */
 
 	.wrapper {
-		padding: 6em 0 4em 0;
+		padding: 3em 0 4em 0;
 	}
 
 		.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5 {

@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'welcomematdev', views.welcomemat),
     url(r'legislatorhandle', views.legislatorhandle),
     url(r'error', views.error),
+    url(r'emailinputhandle', views.welcomemathandle),
 ]
 
 

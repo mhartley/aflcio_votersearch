@@ -122,9 +122,9 @@ USE_L10N = True
 USE_TZ = True
 
 # # Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
-GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
+# DATABASES['default'] =  dj_database_url.config()  #conn_max_age=500  ..maybe?
+# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+# GDAL_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgdal.so'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
