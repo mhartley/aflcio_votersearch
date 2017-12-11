@@ -37,7 +37,8 @@ def legislatorhandle(request):
 			i = Capture(zipcode = zipcode, address = address, email = email, cellphone = cellphone, client_ip = client_ip, georeturn = True)
 			try:
 				i.save()
-			except:
+			except Exception as e:
+				print(e)
 				transaction.rollback()
 			if email:
 				contactgiven = True
@@ -50,11 +51,13 @@ def legislatorhandle(request):
 			i = Capture(zipcode = zipcode, address = address, email = email, cellphone = cellphone, client_ip = client_ip, georeturn = False)
 			try:
 				i.save()
-			except:
+			except Exception as e:
+				print(e)
 				transaction.rollback()
 			#start fresh from home page with an error message
 			return render(request, 'home.html', {'error':True})
 	else:
+		print('NOT POST')
 		return render(request, 'home.html', {'error':True})
 
 def showleg(request, lat, lng, contactgiven):
