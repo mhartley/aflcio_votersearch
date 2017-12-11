@@ -169,11 +169,11 @@
 									<h3> Candidate <br /> {{ltgov.firstname}} {{ltgov.lastname}} <br> Statewide </h3>
 									<!-- <h3>AFL-CIO Score</h3> -->
 									<h1><span style = 'font-size: 30px'>{% if houserep.endorse %}
-									<span style= "color:green;"><div class = 'endorseicon'></div> AFL Endorsed</span>
+									<span style= "color:green;"><div class = 'endorseicon'></div> <br />Labor's Choice</span>
 									{% elif not houserep.endorse %}
-									<span style= "color:red;"><div class = 'endorseicon'></div> AFL Opposed</span>
+									<span style= "color:red;"><div class = 'endorseicon'></div> <br /><br /></span>
 									{% elif houserep.endorse == Null %}
-									<span style= "color:grey;"><br /></span>
+									<span style= "color:grey;"><br /><br /></span>
 									{% endif %}</span></h1>
 									<!-- <a href="votes/{{houserep.id}}" class="button alt small">See their votes</a> -->
 								</div>
@@ -195,11 +195,11 @@
 									<!-- <h3>AFL-CIO Score</h3> -->
 									<h1><span style = 'font-size: 30px'>
 										{% if congrep.endorse %}
-									<span style= "color:green;"><div class = 'endorseicon'></div>AFL Endorsed
+									<span style= "color:green;"><div class = 'endorseicon'></div><br />Labor's Choice
 									{% elif not congrep.endorse %}
-									<span style= "color:red;"><div class = 'endorseicon'></div> AFL Opposed</span>
+									<span style= "color:red;"><div class = 'endorseicon'></div><br /><br /></span>
 									{% else %}
-									<span style= "color:grey;"><br /></span>
+									<span style= "color:grey;"><br /><br /></span>
 									{% endif %}</span></h1>
 									<!-- <a href="votes/{{senrep.id}}" class="button alt small">See their votes</a> -->
 								</div>
@@ -220,11 +220,11 @@
 									<!-- <h3>AFL-CIO Score</h3> -->
 									<h1><span style = 'font-size: 30px'>
 										{% if senrep.endorse %}
-									<span style= "color:green;"><div class = 'endorseicon'></div> AFL Endorsed</span>
+									<span style= "color:green;"><div class = 'endorseicon'></div> <br />Labor's Choice</span>
 									{% elif not senrep.endorse %}
-									<span style= "color:red;"><div class = 'endorseicon'></div> AFL Opposed</span>
+									<span style= "color:red;"><div class = 'endorseicon'></div> <br /><br /></span>
 									{% else %}
-									<span style= "color:grey;"><br /></span>
+									<span style= "color:grey;"><br /><br /></span>
 									{% endif %}</span></h1>
 									<!-- <a href="votes/{{senrep.id}}" class="button alt small">See their votes</a> -->
 								</div>
@@ -244,11 +244,11 @@
 									<h3> Representative <br /> {{houserep.firstname}} {{houserep.lastname}} <br> District {{hd.district}} </h3>
 									<!-- <h3>AFL-CIO Score</h3> -->
 									<h1><span style = 'font-size: 30px'>{% if houserep.endorse %}
-									<span style= "color:green;"><div class = 'endorseicon'></div> AFL Endorsed</span>
+									<span style= "color:green;"><div class = 'endorseicon'></div><br /> Labor's Choice</span>
 									{% elif not houserep.endorse %}
-									<span style= "color:red;"><div class = 'endorseicon'></div> AFL Opposed</span>
+									<span style= "color:red;"><div class = 'endorseicon'></div> <br /><br /></span>
 									{% elif houserep.endorse == Null %}
-									<span style= "color:grey;"><br /></span>
+									<span style= "color:grey;"><br /><br /></span>
 									{% endif %}</span></h1>
 									<!-- <a href="votes/{{houserep.id}}" class="button alt small">See their votes</a> -->
 								</div>
