@@ -4,7 +4,9 @@
 {% block css %}
 
 <style>
-
+	.darkbox:hover p, .darkbox:hover h3 {
+		color:#001885!important;
+	}
 
 .endorse {
 
@@ -315,8 +317,8 @@
 
 
 
-	$('#closeform').on('click', function(){
-		$('#welcomemat').toggleClass('hidden');
+	$('#closeForm').on('click', function(){
+		$('#welcomemat').addClass('hidden');
 	});
 
 

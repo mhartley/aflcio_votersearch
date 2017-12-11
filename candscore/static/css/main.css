@@ -28,6 +28,13 @@
 
 	.darkbox:hover{
 		background-color: #fff;
+	}
+
+	.darkbox:hover a {
+		color:#001885!important;
+	}
+
+	.darkbox:hover p, .darkbox:hover h3, .darkbox:hover  a {
 		color:#001885!important;
 	}
 
