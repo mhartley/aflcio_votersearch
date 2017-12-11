@@ -72,6 +72,31 @@
 }
 
 
+
+#showlegtop {
+
+	background-image: url(/static/img/site_img/bluecollarhands.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position:center center;
+	padding: 0;
+
+}
+
+
+#showlegtop p {
+	color:white;
+}
+
+.trasparent-cover {
+	width: 100%;
+	height:100%;
+	background: rgba(255, 0, 4,.6);
+	padding: 3em 0 4em 0;
+}
+
+
+
 </style>
 
 
@@ -83,7 +108,7 @@
 <!-- This was a welcome mat to gather email. Not put into header form by request. -->
 
 	<div id = 'welcomemat' class = 'hidden'>
-				<h2 class = 'headertext'>Thanks for being engaged!</h2><h3>Sign up to get election updates from the AFL-CIO. We promise we NEVER spam you.</h3>
+				<h2 class = 'headertext'>Thanks for being an engaged citizen.</h2><h3>Sign up to get election updates from the AFL-CIO.</h3>
 
 
 			<form id  ='welcomematform' action = '#'>
@@ -112,11 +137,13 @@
 
 
 
-			<section class="wrapper style1 special " >
-				<div class="row inner text-center showlegtop ">
-					<div class = "col-md-12 col-xs-12 vertical-center">
-						<h1>Your Elected Officials</h1>
-						<p>Texans are free to make their own voting decisions. Our candidate endorsements are based on whether candidates support makeing working people's lives better. In order for Texans to live long, healthy, and prosperous lives, we focus on issues such as better pay, benefits, and safer workplaces.<br /><br />We are stronger <span style = 'font-weight:bold'>together</span>. We are <span style = 'font-weight:bold'>union.</span></p>
+			<section class="wrapper style1 special " id = 'showlegtop'>
+				<div class = 'trasparent-cover'>
+					<div class="row inner text-center" >
+						<div class = "col-md-12 col-xs-12 vertical-center">
+							<h1>Your Elected Officials</h1>
+							<p>Texans are free to make their own voting decisions. Our candidate endorsements are based on whether candidates support making working people's lives better. In order for Texans to live long, healthy, and prosperous lives, we focus on issues such as better pay, benefits, and safer workplaces.<br /><br />We are stronger <span style = 'font-weight:bold'>together</span>. We are <span style = 'font-weight:bold'>union.</span></p>
+						</div>
 					</div>
 				</div>
 			</section>
